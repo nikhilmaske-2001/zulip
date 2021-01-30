@@ -2,6 +2,27 @@ body.night-mode {
     background-color: hsl(212, 28%, 18%);
     color: hsl(236, 33%, 90%);
 
+    .progressive-table-wrapper {
+        position: relative;
+        max-height: calc(95vh - 220px);
+        overflow: auto;
+        width: 100%;
+        
+        th {
+            position: sticky;
+            top: 0;
+            background-color: hsl(0, 0%, 0%) !important;
+    
+            &:hover {
+                background-color: hsl(211, 29%, 14%) !important;
+            }
+        }
+    
+        table {
+            border-collapse: separate;
+        }
+    }
+
     a:hover {
         color: hsl(200, 79%, 66%);
     }

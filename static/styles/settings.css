@@ -699,7 +699,22 @@ input[type="checkbox"] {
     max-height: calc(95vh - 220px);
     overflow: auto;
     width: 100%;
+    
+    th {
+        position: sticky;
+        top: 0;
+        background-color: hsl(0, 0%, 100%) !important;
+
+        &:hover {
+            background-color: hsl(210, 100%, 97%) !important;
+        }
+    }
+
+    table {
+        border-collapse: separate;
+    }
 }
+
 
 #admin-default-streams-list .progressive-table-wrapper {
     max-height: calc(95vh - 280px);
