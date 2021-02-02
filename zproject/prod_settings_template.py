@@ -563,13 +563,6 @@ ENABLE_GRAVATAR = True
 #REMOTE_POSTGRES_PORT = '5432'
 #REMOTE_POSTGRES_SSLMODE = 'require'
 
-# If you want to set a Terms of Service for your server, set the path
-# to your Markdown file, and uncomment the following line.
-#TERMS_OF_SERVICE = '/etc/zulip/terms.md'
-
-# Similarly if you want to set a Privacy Policy.
-#PRIVACY_POLICY = '/etc/zulip/privacy.md'
-
 # The default CAMO_URI of '/external_content/' is served by the camo
 # setup in the default Zulip nginx configuration.  Setting CAMO_URI
 # to '' will disable the Camo integration.
@@ -620,6 +613,13 @@ CAMO_URI = '/external_content/'
 # previews should be thumbnailed by thumbor, which saves bandwidth but
 # can modify the image's appearance.
 #THUMBNAIL_IMAGES = True
+
+# If you want to set a Terms of Service for your server, set the path
+# to your Markdown file, and uncomment the following line.
+#TERMS_OF_SERVICE = '/etc/zulip/terms.md'
+
+# Similarly if you want to set a Privacy Policy.
+#PRIVACY_POLICY = '/etc/zulip/privacy.md'
 
 
 ################
