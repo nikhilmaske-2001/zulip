@@ -10,6 +10,31 @@ chosen authentication methods require; then restart the Zulip server.
 
 Details on each method below.
 
+## Email and password
+
+The `EmailAuthBackend` method is the one method enabled by default,
+and it requires no additional configuration.
+
+Users set a password with the Zulip server, and log in with their
+email and password.
+
+When first setting up your Zulip server, this method must be used for
+creating the initial realm and user.  You can disable it after that.
+
+## Plug-and-play SSO (Google, GitHub, GitLab)
+
+With just a few lines of configuration, your Zulip server can
+authenticate users with any of several single-sign-on (SSO)
+authentication providers:
+* Google accounts, with `GoogleAuthBackend`
+* GitHub accounts, with `GitHubAuthBackend`
+* GitLab accounts, with `GitLabAuthBackend`
+* Microsoft Azure Active Directory, with `AzureADAuthBackend`
+
+Each of these requires one to a handful of lines of configuration in
+`settings.py`, as well as a secret in `zulip-secrets.conf`.  Details
+are documented in your `settings.py`.
+
 ## LDAP (including Active Directory)
 
 Zulip supports retrieving information about users via LDAP, and
@@ -279,30 +304,8 @@ the bottom of the problem:
   this file (feel free to anonymize any email addresses to
   `username@example.com`) in your report.
 
-## Email and password
 
-The `EmailAuthBackend` method is the one method enabled by default,
-and it requires no additional configuration.
 
-Users set a password with the Zulip server, and log in with their
-email and password.
-
-When first setting up your Zulip server, this method must be used for
-creating the initial realm and user.  You can disable it after that.
-
-## Plug-and-play SSO (Google, GitHub, GitLab)
-
-With just a few lines of configuration, your Zulip server can
-authenticate users with any of several single-sign-on (SSO)
-authentication providers:
-* Google accounts, with `GoogleAuthBackend`
-* GitHub accounts, with `GitHubAuthBackend`
-* GitLab accounts, with `GitLabAuthBackend`
-* Microsoft Azure Active Directory, with `AzureADAuthBackend`
-
-Each of these requires one to a handful of lines of configuration in
-`settings.py`, as well as a secret in `zulip-secrets.conf`.  Details
-are documented in your `settings.py`.
 
 ## SAML
 
