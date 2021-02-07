@@ -76,7 +76,8 @@ li.show-more-topics {
     max-width: 18em;
 }
 
-#stream_filters {
+#stream_filters,
+#pinned_filters {
     overflow: visible;
     margin-bottom: 10px;
     margin-right: 12px;

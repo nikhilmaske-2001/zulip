@@ -103,7 +103,9 @@ exports.build_stream_list = function (force_rerender) {
     }
 
     const parent = $("#stream_filters");
+    const pin_parent = $("#pinned_filters");
     const elems = [];
+    const pin_elems = [];
 
     function add_sidebar_li(stream_id) {
         const sidebar_row = exports.stream_sidebar.get_row(stream_id);
@@ -111,11 +113,18 @@ exports.build_stream_list = function (force_rerender) {
         elems.push(sidebar_row.get_li());
     }
 
+    function pinned_add_sidebar_li(stream_id) {
+        const sidebar_row = exports.stream_sidebar.get_row(stream_id);
+        sidebar_row.update_whether_active();
+        pin_elems.push(sidebar_row.get_li());
+    }
+
     topic_list.clear();
     parent.empty();
+    pin_parent.empty();
 
     for (const stream_id of stream_groups.pinned_streams) {
-        add_sidebar_li(stream_id);
+        pinned_add_sidebar_li(stream_id);
     }
 
     const any_pinned_streams = stream_groups.pinned_streams.length > 0;
@@ -123,7 +132,7 @@ exports.build_stream_list = function (force_rerender) {
     const any_dormant_streams = stream_groups.dormant_streams.length > 0;
 
     if (any_pinned_streams && (any_normal_streams || any_dormant_streams)) {
-        elems.push('<hr class="stream-split">');
+        pin_elems.push('<hr class="stream-split">');
     }
 
     for (const stream_id of stream_groups.normal_streams) {
@@ -139,6 +148,7 @@ exports.build_stream_list = function (force_rerender) {
     }
 
     parent.append(elems);
+    pin_parent.append(pin_elems);
 };
 
 exports.get_stream_li = function (stream_id) {
