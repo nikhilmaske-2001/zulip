@@ -401,6 +401,7 @@ exports.get_sidebar_stream_topic_info = function (filter) {
 
 function deselect_stream_items() {
     $("ul#stream_filters li").removeClass("active-filter");
+    $("ul#pinned_filters li").removeClass("active-filter");
 }
 
 exports.update_stream_sidebar_for_narrow = function (filter) {
