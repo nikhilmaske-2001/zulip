@@ -359,6 +359,21 @@ exports.register_click_handlers = function () {
         });
     });
 
+    $("#pinned_filters").on("click", ".topic-sidebar-menu-icon", (e) => {
+        e.stopPropagation();
+
+        const elt = $(e.target).closest(".topic-sidebar-menu-icon").expectOne()[0];
+        const stream_li = $(elt).closest(".narrow-filter").expectOne();
+        const stream_id = elem_to_stream_id(stream_li);
+        const topic_name = $(elt).closest("li").expectOne().attr("data-topic-name");
+
+        build_topic_popover({
+            elt,
+            stream_id,
+            topic_name,
+        });
+    });
+
     $("#global_filters").on("click", ".all-messages-sidebar-menu-icon", build_all_messages_popover);
 
     $("#global_filters").on(
